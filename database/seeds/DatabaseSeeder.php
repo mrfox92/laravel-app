@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         //  creamos los roles de usuario
         factory(App\Role::class, 1)->create(['name' => 'admin']);
-        factory(App\Role::class, 1)->create(['name' => 'service']);
+        factory(App\Role::class, 1)->create(['name' => 'seller']);
         factory(App\Role::class, 1)->create(['name' => 'customer']);
 
         //  usuarios

@@ -16,7 +16,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+    protected $fillable = [ 
         'name', 'email', 'password',
     ];
 
@@ -37,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //  a un usuario le pertenece un role de usuario
+    public function role() {
+        return $this->belongsTo(\App\Role::class);
+    }
+
+    //  comprobar role usuario y devolvemos el nombre del role
+    public static function navigation () {
+        return auth()->check() ? auth()->user()->role->name : 'guest';
+    }
 }
