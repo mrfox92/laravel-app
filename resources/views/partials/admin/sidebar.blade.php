@@ -27,27 +27,10 @@
             </li>
 
             <li class="nav-item mm-active">
-                <a href="#" class="collapsed-nav-link nav-link" aria-expanded="false">
+                <a href="{{ route('admin.services') }}" class="nav-link" aria-expanded="false">
                     <span class="icon"><i class='bx bx-home-circle'></i></span>
-                    <span class="menu-title">Dashboard</span>
-                    <span class="badge">2</span>
+                    <span class="menu-title">Servicios</span>
                 </a>
-
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item mm-active">
-                        <a href="dashboard-analytics.html" class="nav-link">
-                            <span class="icon"><i class='bx bx-analyse'></i></span>
-                            <span class="menu-title">Analytics</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="dashboard-ecommerce.html" class="nav-link">
-                            <span class="icon"><i class='bx bxs-shopping-bag'></i></span>
-                            <span class="menu-title">eCommerce</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item-title">

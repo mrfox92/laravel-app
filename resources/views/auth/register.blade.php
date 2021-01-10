@@ -2,13 +2,13 @@
 
 @section('content')
 <!-- Start Register Area -->
-<div class="register-area">
-    <div class="d-table">
-        <div class="d-table-cell">
+<div class="register-area my-2">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="register-form">
-                <div class="logo">
+                {{-- <div class="logo">
                     <a href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="image"></a>
-                </div>
+                </div> --}}
 
                 <h2>{{ __("Regístrate") }}</h2>
 
@@ -86,6 +86,7 @@
                 </form>
             </div>
         </div>
+        @include('partials.auth.social_login')
     </div>
 </div>
 <!-- End Register Area -->

@@ -1,29 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center my-5">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<div class="pl-5 pr-5 my-5">
+    <div class="row justify-content-center">
+        @forelse ($services as $service)
+            <div class="col-md-4">
+                <div class="card mb-30 p-0" style="cursor: pointer;">
+                    <div class="card-body">
+                        <img src="{{ $service->pathAttachment() }}" alt="image">
+                    </div>
 
-                    You are logged in!
+                    <div class="card-body p-4">
+                        <h5 class="card-title">{{ $service->name }}</h5>
+                        <hr>
+                        <span class="badge badge-success my-2">{{ $service->category->name }}</span>
+                        <i class="float-right" data-feather="heart"></i>
+                        <p class="mb-2">{{ Str::limit( $service->description, 100 ) }}</p>
+
+                        <small class="text-muted">{{ $service->seller->user->name }}</small>
+
+                        <a href="{{ route('services.show', ['slug' => $service->slug]) }}" class="btn btn-primary btn-block mt-2">{{ __("Ver en detalle") }}</a>
+                    </div>
                 </div>
+            </div>        
+        @empty
+            <div class="alert alert-dark">
+                {{ __("No hay ningún servicio disponible") }}
             </div>
-        </div>
+        @endforelse
+    </div>
+
+    <div class="row justify-content-center my-5">
+        {{ $services->links() }}
     </div>
 </div>
 
 
 <!-- Breadcrumb Area -->
-<div class="breadcrumb-area">
+{{-- <div class="breadcrumb-area">
     <h1>Dashboard</h1>
 
     <ol class="breadcrumb">
@@ -711,5 +726,5 @@
 </div>
 <!-- End -->
 
-<div class="flex-grow-1"></div>
+<div class="flex-grow-1"></div> --}}
 @endsection

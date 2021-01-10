@@ -36,7 +36,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('avatar')->nullable();
-
             $table->rememberToken();
             $table->timestamps();
         });
@@ -48,8 +47,10 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('privider'); //  nombre red social
+            $table->string('provider'); //  nombre red social
             $table->string('provider_uid'); //  nuestro id de la red con la que nos identificamos
+
+            $table->timestamps();
 
         });
 

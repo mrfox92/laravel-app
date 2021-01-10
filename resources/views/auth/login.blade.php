@@ -2,13 +2,14 @@
 
 @section('content')
 
- <div class="login-area">
-    <div class="d-table">
-        <div class="d-table-cell">
+
+<div class="login-area my-2">
+    <div class="row justify-content-center">
+        <div class="col-md-8 my-2">
             <div class="login-form">
-                <div class="logo">
+                {{-- <div class="logo">
                     <a href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="image"></a>
-                </div>
+                </div> --}}
 
                 <h2>{{ __("Bienvenido") }}</h2>
 
@@ -78,6 +79,7 @@
                 </form>
             </div>
         </div>
+        @include('partials.auth.social_login')
     </div>
 </div>
 

@@ -6,30 +6,10 @@
             <span class="middle-bar"></span>
             <span class="bottom-bar"></span>
         </div>
-        
-        <ul class="navbar-nav left-nav align-items-center">
-            <li class="nav-item">
-                <a href="app-email.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Email">
-                    <i class="bx bx-envelope"></i>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="app-chat.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Message">
-                    <i class='bx bx-message'></i>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="app-calendar.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Calendar">
-                    <i class='bx bx-calendar'></i>
-                </a>
-            </li>
-        </ul>
 
         <form class="nav-search-form d-none ml-auto d-md-block">
             <label><i class='bx bx-search'></i></label>
-            <input type="text" class="form-control" placeholder="Search here...">
+            <input type="text" class="form-control" placeholder="Buscar...">
         </form>
 
         <ul class="navbar-nav right-nav align-items-center">
@@ -45,8 +25,8 @@
 
                 <div class="dropdown-menu">
                     <div class="dropdown-header d-flex justify-content-between align-items-center">
-                        <span class="title d-inline-block">4 New Message</span>
-                        <span class="clear-all-btn d-inline-block">Clear All</span>
+                        <span class="title d-inline-block">4 nuevo(s) Mensaje(s)</span>
+                        <span class="clear-all-btn d-inline-block">Limpiar todo</span>
                     </div>
 
                     <div class="dropdown-body">
@@ -60,7 +40,7 @@
                                     <span class="d-block">Sarah Taylor</span>
                                     <p class="sub-text mb-0">UX/UI design</p>
                                 </div>
-                                <p class="time-text mb-0">2 sec ago</p>
+                                <p class="time-text mb-0">Hace 2 seg</p>
                             </div>
                         </a>
 
@@ -108,7 +88,7 @@
                     </div>
 
                     <div class="dropdown-footer">
-                        <a href="#" class="dropdown-item">View All</a>
+                        <a href="#" class="dropdown-item">Ver Todo</a>
                     </div>
                 </div>
             </li>
@@ -124,8 +104,8 @@
 
                 <div class="dropdown-menu">
                     <div class="dropdown-header d-flex justify-content-between align-items-center">
-                        <span class="title d-inline-block">6 New Notifications</span>
-                        <span class="mark-all-btn d-inline-block">Mark all as read</span>
+                        <span class="title d-inline-block">6 Nueva(s) Notificacion(es)</span>
+                        <span class="mark-all-btn d-inline-block">Marcar como leidas</span>
                     </div>
 
                     <div class="dropdown-body">
@@ -186,7 +166,7 @@
                     </div>
 
                     <div class="dropdown-footer">
-                        <a href="#" class="dropdown-item">View All</a>
+                        <a href="#" class="dropdown-item">Ver Todo</a>
                     </div>
                 </div>
             </li>
@@ -194,46 +174,56 @@
             <li class="nav-item dropdown profile-nav-item">
                 <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="menu-profile">
-                        <span class="name">Hi! Andro</span>
-                        <img src="{{ asset('img/user1.jpg') }}" class="rounded-circle" alt="image">
+                        <span class="name">Hola! {{ auth()->user()->name }}</span>
+                        {{-- profile image --}}
+                        @if ( auth()->user()->getAvatarUser() )        
+                            <img src="{{ auth()->user()->getAvatarUser() }}" class="rounded-circle" alt="image">
+                        @else
+                            <img src="{{ asset('img/user1.jpg') }}" class="rounded-circle" alt="image">
+                        @endif
                     </div>
                 </a>
 
                 <div class="dropdown-menu">
                     <div class="dropdown-header d-flex flex-column align-items-center">
                         <div class="figure mb-3">
-                            <img src="{{ asset('img/user1.jpg') }}" class="rounded-circle" alt="image">
+                            {{-- profile image --}}
+                            @if ( auth()->user()->getAvatarUser() )
+                                <img src="{{ auth()->user()->getAvatarUser() }}" class="rounded-circle" alt="image">
+                            @else
+                                <img src="{{ asset('img/user1.jpg') }}" class="rounded-circle" alt="image">
+                            @endif
                         </div>
 
                         <div class="info text-center">
-                            <span class="name">Andro Smith</span>
-                            <p class="mb-3 email">hello@androsmith.com</p>
+                            <span class="name">{{ auth()->user()->name }}</span>
+                            <p class="mb-3 email">{{ auth()->user()->email }}</p>
                         </div>
                     </div>
 
                     <div class="dropdown-body">
                         <ul class="profile-nav p-0 pt-3">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class='bx bx-user'></i> <span>Profile</span>
+                                <a href="{{ route('seller.profile', ['seller' => auth()->user()->seller->id ]) }}" class="nav-link">
+                                    <i class='bx bx-user'></i> <span>Perfil</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-envelope'></i> <span>My Inbox</span>
+                                    <i class='bx bx-envelope'></i> <span>Mensajes</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-edit-alt'></i> <span>Edit Profile</span>
+                                    <i class='bx bx-edit-alt'></i> <span>Editar Perfil</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-cog'></i> <span>Settings</span>
+                                    <i class='bx bx-cog'></i> <span>Configuraciones</span>
                                 </a>
                             </li>
                         </ul>

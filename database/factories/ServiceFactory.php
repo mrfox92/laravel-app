@@ -5,6 +5,7 @@
 use App\Service;
 use App\Seller;
 use App\Category;
+use App\Type;
 use App\Commune;
 use Faker\Generator as Faker;
 use Faker\Provider\Image;
@@ -21,7 +22,7 @@ $factory->define(Service::class, function (Faker $faker) {
         'seller_id'     =>  Seller::all()->random()->id,
         'category_id'   =>  Category::all()->random()->id,  
         'commune_id'    =>  Commune::all()->random()->id,
-        'service_type'  =>  $service_type,
+        'type_id'       =>  Type::all()->random()->id,
         'name'          =>  $name,
         'description'   =>  $description,
         'slug'          =>  Str::slug($name, '-'),

@@ -14,9 +14,13 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
         Storage::deleteDirectory('services');
         Storage::deleteDirectory('users');
+        Storage::deleteDirectory('sellers');
+        Storage::deleteDirectory('banners');
 
         Storage::makeDirectory('services');
         Storage::makeDirectory('users');
+        Storage::makeDirectory('sellers');
+        Storage::makeDirectory('banners');
 
         //  creamos los roles de usuario
         factory(App\Role::class, 1)->create(['name' => 'admin']);
@@ -50,6 +54,9 @@ class DatabaseSeeder extends Seeder
         
         //  creamos las categorias
         factory(App\Category::class, 10)->create();
+
+        //  creamos los tipos de servicios
+        factory(App\Type::class, 4)->create();
 
         //  creamos las regiones
         //  creamos 2 comunas por región

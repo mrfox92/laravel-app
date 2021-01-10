@@ -43,6 +43,18 @@
                 @include('partials.guest.navigation')
             @endauth
 
+            @if ( session('message') )
+                <div class="row justify-content-center">
+                    <div class="col-md-12 my-2">
+                        <div class="alert alert-{{ session('message')['class'] }}" role="alert">
+                            <h4 class="alert-heading">
+                                {{ __("Mensaje informativo") }}
+                            </h4>
+                            <p>{{ session('message')['message'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
             @yield('content')
 
             {{-- footer --}}

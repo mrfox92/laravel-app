@@ -6,30 +6,10 @@
             <span class="middle-bar"></span>
             <span class="bottom-bar"></span>
         </div>
-        
-        <ul class="navbar-nav left-nav align-items-center">
-            <li class="nav-item">
-                <a href="app-email.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Email">
-                    <i class="bx bx-envelope"></i>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="app-chat.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Message">
-                    <i class='bx bx-message'></i>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="app-calendar.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Calendar">
-                    <i class='bx bx-calendar'></i>
-                </a>
-            </li>
-        </ul>
 
         <form class="nav-search-form d-none ml-auto d-md-block">
             <label><i class='bx bx-search'></i></label>
-            <input type="text" class="form-control" placeholder="Search here...">
+            <input type="text" class="form-control" placeholder="Buscar...">
         </form>
 
         <ul class="navbar-nav right-nav align-items-center">
@@ -194,7 +174,7 @@
             <li class="nav-item dropdown profile-nav-item">
                 <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="menu-profile">
-                        <span class="name">Hi! Andro</span>
+                        <span class="name">Hola! {{ auth()->user()->name }}</span>
                         <img src="{{ asset('img/user1.jpg') }}" class="rounded-circle" alt="image">
                     </div>
                 </a>
@@ -206,8 +186,8 @@
                         </div>
 
                         <div class="info text-center">
-                            <span class="name">Andro Smith</span>
-                            <p class="mb-3 email">hello@androsmith.com</p>
+                            <span class="name">{{ auth()->user()->name }}</span>
+                            <p class="mb-3 email">{{ auth()->user()->email }}</p>
                         </div>
                     </div>
 
@@ -215,25 +195,25 @@
                         <ul class="profile-nav p-0 pt-3">
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-user'></i> <span>Profile</span>
+                                    <i class='bx bx-user'></i> <span>{{ __('Perfil') }}</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-envelope'></i> <span>My Inbox</span>
+                                    <i class='bx bx-envelope'></i> <span>{{ __('Mensajes') }}</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-edit-alt'></i> <span>Edit Profile</span>
+                                    <i class='bx bx-edit-alt'></i> <span>{{ __('Editar Perfil') }}</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class='bx bx-cog'></i> <span>Settings</span>
+                                    <i class='bx bx-cog'></i> <span>{{ __('Configuraciones') }}</span>
                                 </a>
                             </li>
                         </ul>

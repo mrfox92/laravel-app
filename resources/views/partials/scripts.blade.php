@@ -7,7 +7,7 @@
 <!-- Vendors Min JS -->
 <script src="{{ asset('js/vendors.min.js') }}"></script>
 {{-- App js --}}
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}?v3" defer></script>
 
 <!-- ApexCharts JS -->
 <script src="{{ asset('js/apexcharts/apexcharts.min.js') }}"></script>

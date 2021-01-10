@@ -20,14 +20,10 @@ class CreateServicesTable extends Migration
             $table->foreign('seller_id')->references('id')->on('sellers');
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('types');
             $table->unsignedInteger('commune_id');
             $table->foreign('commune_id')->references('id')->on('communes');
-            $table->enum('service_type', [
-                \App\Service::SERVICE,
-                \App\Service::INICIATIVE,
-                \App\Service::EVENT,
-                \App\Service::CONVOCATORY
-            ])->default(\App\Service::SERVICE);
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2)->nullable();

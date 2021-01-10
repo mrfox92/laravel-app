@@ -19,10 +19,14 @@ class CreateSellersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->text('bio')->nullable();
             $table->string('website_url')->nullable();
-            $table->string('contact_email')->nullable();
-            $table->bigInteger('contact_number')->nullable()->default(8);
+            $table->string('address')->nullable();
+            $table->string('contact_email')->unique();
+            $table->string('contact_number')->nullable();
+            $table->string('picture')->nullable();
+            $table->string('banner')->nullable();
             $table->timestamps();
         });
     }
